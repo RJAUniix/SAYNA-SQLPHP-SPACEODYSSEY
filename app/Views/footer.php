@@ -1,12 +1,12 @@
-<!-- jQuery -->
-<!-- <script src="../../plugins/jquery/jquery.min.js"></script> -->
-<!-- Bootstrap 4  -->
-<!-- <script src="../../plugins/bootstrap/js/bootstrap.bundle.min.js"></script> -->
-<!-- AdminLTE App -->
-<!-- <script src="../../dist/js/adminlte.min.js"></script> -->
-<!-- AdminLTE for demo purposes -->
-<!-- <script src="../../dist/js/demo.js"></script> -->
-</div>
+<!-- /.content-wrapper -->
+<footer class="main-footer">
+    <strong>Copyright &copy; 2023 <a href="#">Stellartech.io</a>.</strong>
+    All rights reserved.
+    <div class="float-right d-none d-sm-inline-block">
+        <b>Version</b> 1.0.0
+    </div>
+</footer>
+
 </body>
 
 </html>

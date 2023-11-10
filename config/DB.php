@@ -5,7 +5,7 @@ namespace config;
 class DB
 {
     const HOST = 'localhost';
-    const USER = 'root';
-    const NAME = 'suividevol';
-    const PASSWORD = 'Uniique@12012003';
+    const USER = 'sayna_odyssey_user';
+    const NAME = 'sayna_odyssey';
+    const PASSWORD = 'sayna_odyssey_psw';
 }
