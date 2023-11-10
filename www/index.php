@@ -49,8 +49,7 @@
                 <div class="center-content">
                     <h1 class="fade-in">Stellar Tech</h1>
                     <p id="p-center">Bienvenue sur la plateforme de gestion des missions intersterstélaires pour la découvertes de nouveaux horizons.</p>
-                    <button class="btn btn-success mt-2 mb-5 mr-2">Missions</button>
-                    <button class="btn btn-primary mt-2 mb-5">Astronautes</button>
+                    <button class="btn btn-outline-primary mt-5 mb-5">Nouvelle mission</button>
                 </div>  
             </div>
         </div>
@@ -65,37 +64,7 @@
     // URL de l'API APOD
     const apiKey = 'AW6lMK0EKHOOKSAhnlzNs3zyMA5dF8k0PkBoUwgS'; // Remplacez YOUR_API_KEY par votre propre clé API de la NASA
     const apiUrl = `https://api.nasa.gov/planetary/apod?api_key=${apiKey}`; 
-
-    // Fonction pour récupérer l'URL de l'image de l'API APOD et définir comme arrière-plan pour la section
-    // function changerBackground() {
-    //     fetch(apiUrl)
-    //         .then(response => response.json())
-    //         .then(data => {
-    //             // Vérifiez si la réponse contient une image
-    //             if (data.media_type === 'image') {
-    //                 const imageUrl = data.url;
-
-    //                 // Sélectionnez la section par son ID
-    //                 const main = document.querySelector('#main');
-
-    //                 // Définissez l'URL de l'image comme arrière-plan pour votre site
-    //                 main.style.backgroundImage = `url(${imageUrl})`;
-    //                 main.style.backgroundRepeat = 'no-repeat';
-    //                 main.style.backgroundSize = 'cover';
-    //             } else {
-    //                 console.error('Aucune image n\'a été trouvée dans la réponse de l\'API APOD.');
-    //             }
-    //         })
-    //         .catch(error => {
-    //             console.error('Une erreur s\'est produite lors de la récupération de l\'image APOD :', error);
-    //         });
-    // }
-
-    // // Appelez la fonction lorsque la page se charge, en passant l'ID de la section en argument
-    // window.addEventListener('load', function() {
-    //     changerBackground();
-    // });
-
+    
     function changerBackground() {
         // Vérifiez si la date stockée en cookie est égale à la date actuelle
         const lastChangedDate = new Date(document.cookie.replace(/(?:(?:^|.*;\s*)backgroundChanged\s*\=\s*([^;]*).*$)|^.*$/, "$1"));
