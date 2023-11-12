@@ -14,29 +14,33 @@
         }
     </style>
 
-    <!-- Google Font: Source Sans Pro -->
+    <!-- Bootstrap -->
+    <link rel="stylesheet" href="../www/dist/js/bootstrap.bundle.min.js">
+
+    <link rel="stylesheet" href="../www/dist/css/bootstrap.min.css">
+    <!-- Google Font: Source Sans Pro
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
-    <!-- Font Awesome -->
-    <link rel="stylesheet" href="../www/plugins/fontawesome-free/css/all.min.css">
+    <-- Font Awesome -->
+    <!-- <link rel="stylesheet" href="../www/plugins/fontawesome-free/css/all.min.css"> -->
     <!-- Ionicons -->
-    <link rel="stylesheet" href="https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css">
+    <!-- <link rel="stylesheet" href="https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css"> -->
     <!-- Tempusdominus Bootstrap 4 -->
-    <link rel="stylesheet" href="../www/plugins/tempusdominus-bootstrap-4/css/tempusdominus-bootstrap-4.min.css">
+    <!-- <link rel="stylesheet" href="../www/plugins/tempusdominus-bootstrap-4/css/tempusdominus-bootstrap-4.min.css"> -->
     <!-- iCheck -->
-    <link rel="stylesheet" href="../www/plugins/icheck-bootstrap/icheck-bootstrap.min.css">
+    <!-- <link rel="stylesheet" href="../www/plugins/icheck-bootstrap/icheck-bootstrap.min.css"> -->
     <!-- JQVMap -->
-    <link rel="stylesheet" href="../www/plugins/jqvmap/jqvmap.min.css">
+    <!-- <link rel="stylesheet" href="../www/plugins/jqvmap/jqvmap.min.css"> --> -->
     <!-- Theme style -->
-    <link rel="stylesheet" href="../www/dist/css/adminlte.min.css">
+    <!-- <link rel="stylesheet" href="../www/dist/css/adminlte.min.css"> -->
     <!-- overlayScrollbars -->
-    <link rel="stylesheet" href="../www/plugins/overlayScrollbars/css/OverlayScrollbars.min.css">
+    <!-- <link rel="stylesheet" href="../www/plugins/overlayScrollbars/css/OverlayScrollbars.min.css"> -->
     <!-- Daterange picker -->
-    <link rel="stylesheet" href="../www/plugins/daterangepicker/daterangepicker.css">
+    <!-- <link rel="stylesheet" href="../www/plugins/daterangepicker/daterangepicker.css"> -->
     <!-- summernote -->
-    <link rel="stylesheet" href="../www/plugins/summernote/summernote-bs4.min.css">
+    <!-- <link rel="stylesheet" href="../www/plugins/summernote/summernote-bs4.min.css"> -->
     <!-- Font awesome -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js" integrity="sha512-v2CJ7UaYy4JwqLDIrZUI/4hqeoQieOmAZNXBeQyjo21dadnwR+8ZaIJVT8EE2iyI61OV8e6M8PP2/4hpQINQ/g==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.0/css/all.min.css" integrity="sha512-BnbUDfEUfV0Slx6TunuB042k9tuKe3xrD6q4mg5Ed72LTgzDIcLPxg6yI2gcMFRyomt+yJJxE+zJwNmxki6/RA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js" integrity="sha512-v2CJ7UaYy4JwqLDIrZUI/4hqeoQieOmAZNXBeQyjo21dadnwR+8ZaIJVT8EE2iyI61OV8e6M8PP2/4hpQINQ/g==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.0/css/all.min.css" integrity="sha512-BnbUDfEUfV0Slx6TunuB042k9tuKe3xrD6q4mg5Ed72LTgzDIcLPxg6yI2gcMFRyomt+yJJxE+zJwNmxki6/RA==" crossorigin="anonymous" referrerpolicy="no-referrer" /> -->
 
     <!-- !lES LIENS -->
 </head>
@@ -74,121 +78,29 @@
     ?>
 
     <div class='row mt-2'>
+    <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
+  Launch static backdrop modal
+</button>
 
-        <?php
-        $query = "SELECT *FROM missions";
-        $stmt = $pdo->query($query);
 
-        while ($row = $stmt->fetch(PDO::FETCH_ASSOC)) {
-            echo "
-
-            <div class='col-xl-3 col-sm-6 col-12 mb-5 mt-3'>
-                <div class='card board1 fill'>
-                    
-                <div class='card-title'>" . $row['nom'] . $_SERVER['HTTP_HOST'] . "</div>
-                    <div class='card-body'>
-                        <div class='dash-widget-header'>
-                            <div>
-                                <p>" . $row['description'] . "</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        ";
-        }
-
-        ?>
+<!-- Modal -->
+<div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="staticBackdropLabel">Modal title</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        ...
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-primary">Understood</button>
+      </div>
     </div>
-
-    <!-- right col (We are only adding the ID to make the widgets sortable)-->
-    <div class="row">
-        <div class="offset-1 col-lg-5">
-            <!-- Calendar -->
-            <div class="card bg-gradient-success">
-                <div class="card-header border-0">
-
-                    <h3 class="card-title">
-                        <i class="far fa-calendar-alt"></i>
-                        Calendar
-                    </h3>
-                    <!-- tools card -->
-                    <div class="card-tools">
-                        <!-- button with a dropdown -->
-                        <div class="btn-group">
-                            <button type="button" class="btn btn-success btn-sm dropdown-toggle" data-toggle="dropdown" data-offset="-52">
-                                <i class="fas fa-bars"></i>
-                            </button>
-                            <div class="dropdown-menu" role="menu">
-                                <a href="#" class="dropdown-item">Add new event</a>
-                                <a href="#" class="dropdown-item">Clear events</a>
-                                <div class="dropdown-divider"></div>
-                                <a href="#" class="dropdown-item">View calendar</a>
-                            </div>
-                        </div>
-                        <button type="button" class="btn btn-success btn-sm" data-card-widget="collapse">
-                            <i class="fas fa-minus"></i>
-                        </button>
-                        <button type="button" class="btn btn-success btn-sm" data-card-widget="remove">
-                            <i class="fas fa-times"></i>
-                        </button>
-                    </div>
-                    <!-- /. tools -->
-                </div>
-                <!-- /.card-header -->
-                <div class="card-body pt-0">
-                    <!--The calendar -->
-                    <div id="calendar" style="width: 100%"></div>
-                </div>
-                <!-- /.card-body -->
-            </div>
-        </div>
-        <div class="col-lg-5">
-            <!-- Map card -->
-            <div class="card bg-gradient-primary">
-                <div class="card-header border-0">
-                    <h3 class="card-title">
-                        <i class="fas fa-map-marker-alt mr-1"></i>
-                        Visitors
-                    </h3>
-                    <!-- card tools -->
-                    <div class="card-tools">
-                        <button type="button" class="btn btn-primary btn-sm daterange" title="Date range">
-                            <i class="far fa-calendar-alt"></i>
-                        </button>
-                        <button type="button" class="btn btn-primary btn-sm" data-card-widget="collapse" title="Collapse">
-                            <i class="fas fa-minus"></i>
-                        </button>
-                    </div>
-                    <!-- /.card-tools -->
-                </div>
-                <div class="card-body">
-                    <div id="world-map" style="height: 250px; width: 100%;"></div>
-                </div>
-                <!-- /.card-body-->
-                <div class="card-footer bg-transparent">
-                    <div class="row">
-                        <div class="col-4 text-center">
-                            <div id="sparkline-1"></div>
-                            <div class="text-white">Visitors</div>
-                        </div>
-                        <!-- ./col -->
-                        <div class="col-4 text-center">
-                            <div id="sparkline-2"></div>
-                            <div class="text-white">Online</div>
-                        </div>
-                        <!-- ./col -->
-                        <div class="col-4 text-center">
-                            <div id="sparkline-3"></div>
-                            <div class="text-white">Sales</div>
-                        </div>
-                        <!-- ./col -->
-                    </div>
-                    <!-- /.row -->
-                </div>
-            </div>
-        </div>
-        <!-- /.card -->
+  </div>
+</div>
 
 
     </div>

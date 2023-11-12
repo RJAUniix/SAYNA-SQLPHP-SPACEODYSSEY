@@ -8,6 +8,13 @@ use config\App;
 // Pour raccourcir les liens
 $lien = 'http://php/SAYNA/SAYNA-SQLPHP-SPACEODYSSEY/www/';
 
+// Pour activer le lien des menus
+$lien1 = getcwd();
+$dossier = substr($lien1, strrpos($lien1,"\\")+1);
+
+// 2 em choix
+$lien2 = $_SERVER['SCRIPT_NAME'];
+$fichier = substr($lien2, strrpos($_SERVER['SCRIPT_NAME'],"/")+1);
 
 ?>
 <html lang="fr">
@@ -16,6 +23,7 @@ $lien = 'http://php/SAYNA/SAYNA-SQLPHP-SPACEODYSSEY/www/';
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Stellar Tech</title>
+
     <!-- Définir la base URL pour tous les liens relatifs -->
     <base href="<?php echo $lien; ?>" />
 
@@ -35,6 +43,8 @@ $lien = 'http://php/SAYNA/SAYNA-SQLPHP-SPACEODYSSEY/www/';
     <link rel="stylesheet" href="plugins/jqvmap/jqvmap.min.css">
     <!-- Theme style -->
     <link rel="stylesheet" href="dist/css/adminlte.min.css">
+    <!-- Bootstrap -->
+    <link rel="stylesheet" href="dist/css/bootstrap.min.css" rel="stylesheet">
     <!-- overlayScrollbars -->
     <link rel="stylesheet" href="plugins/overlayScrollbars/css/OverlayScrollbars.min.css">
     <!-- Daterange picker -->
@@ -77,6 +87,8 @@ $lien = 'http://php/SAYNA/SAYNA-SQLPHP-SPACEODYSSEY/www/';
     <script src="dist/js/adminlte.js"></script>
     <!-- AdminLTE dashboard demo (This is only for demo purposes) -->
     <script src="dist/js/pages/dashboard.js"></script>
+    <!-- Bootstrap -->
+    <script src="dist/js/bootstrap.bundle.min.js"></script>
     <!-- !lES LIENS -->
 </head>
 
@@ -95,10 +107,10 @@ $lien = 'http://php/SAYNA/SAYNA-SQLPHP-SPACEODYSSEY/www/';
                     <a class="nav-link" data-widget="pushmenu" href="#" role="button"><i class="fas fa-bars mt-1"></i></a>
                 </li>
                 <li class="nav-item d-none d-sm-inline-block">
-                    <a href="#" class="nav-link">Accueil</a>
+                    <a href="#" class="nav-link <?= $dossier == 'www' ? 'active' : '' ?>">Accueil</a>
                 </li>
                 <li class="nav-item d-none d-sm-inline-block">
-                    <a href="#" class="nav-link">Aide</a>
+                    <a href="../app/Views/aide.php" class="nav-link <?= $fichier == 'aide.php' ? 'active' : '' ?>">Aide</a>
                 </li>
             </ul>
 
@@ -129,10 +141,10 @@ $lien = 'http://php/SAYNA/SAYNA-SQLPHP-SPACEODYSSEY/www/';
                 <!-- Messages Dropdown Menu -->
                 <li class="nav-item dropdown">
                     <a class="nav-link" data-toggle="dropdown" href="#">
-                        <i class="far fa-comments"></i>
+                        <i class="far fa-circle"></i>
                         <span class="badge badge-danger navbar-badge">3</span>
                     </a>
-                    <div class="dropdown-menu dropdown-menu-lg dropdown-menu-right">
+                    <div class="dropdown-menu dropdown-menu-xm dropdown-menu-right">
                         <a href="#" class="dropdown-item">
                             <!-- Message Start -->
                             <div class="media">
@@ -142,7 +154,7 @@ $lien = 'http://php/SAYNA/SAYNA-SQLPHP-SPACEODYSSEY/www/';
                                         Brad Diesel
                                         <span class="float-right text-sm text-danger"><i class="fas fa-star"></i></span>
                                     </h3>
-                                    <p class="text-sm">Call me whenever you can...</p>
+                                    <p class="text-sm">Besoin d'assistance pour ma mission...</p>
                                     <p class="text-sm text-muted"><i class="far fa-clock mr-1"></i> 4 Hours Ago</p>
                                 </div>
                             </div>
@@ -158,7 +170,7 @@ $lien = 'http://php/SAYNA/SAYNA-SQLPHP-SPACEODYSSEY/www/';
                                         John Pierce
                                         <span class="float-right text-sm text-muted"><i class="fas fa-star"></i></span>
                                     </h3>
-                                    <p class="text-sm">I got your message bro</p>
+                                    <p class="text-sm">Je suis dispo pour une nouvelle mission.</p>
                                     <p class="text-sm text-muted"><i class="far fa-clock mr-1"></i> 4 Hours Ago</p>
                                 </div>
                             </div>
@@ -174,41 +186,14 @@ $lien = 'http://php/SAYNA/SAYNA-SQLPHP-SPACEODYSSEY/www/';
                                         Nora Silvester
                                         <span class="float-right text-sm text-warning"><i class="fas fa-star"></i></span>
                                     </h3>
-                                    <p class="text-sm">The subject goes here</p>
+                                    <p class="text-sm">Mission accomplie, je reviens à la base...</p>
                                     <p class="text-sm text-muted"><i class="far fa-clock mr-1"></i> 4 Hours Ago</p>
                                 </div>
                             </div>
                             <!-- Message End -->
                         </a>
                         <div class="dropdown-divider"></div>
-                        <a href="#" class="dropdown-item dropdown-footer">See All Messages</a>
-                    </div>
-                </li>
-                <!-- Notifications Dropdown Menu -->
-                <li class="nav-item dropdown">
-                    <a class="nav-link" data-toggle="dropdown" href="#">
-                        <i class="far fa-bell"></i>
-                        <span class="badge badge-warning navbar-badge">15</span>
-                    </a>
-                    <div class="dropdown-menu dropdown-menu-lg dropdown-menu-right">
-                        <span class="dropdown-item dropdown-header">15 Notifications</span>
-                        <div class="dropdown-divider"></div>
-                        <a href="#" class="dropdown-item">
-                            <i class="fas fa-envelope mr-2"></i> 4 new messages
-                            <span class="float-right text-muted text-sm">3 mins</span>
-                        </a>
-                        <div class="dropdown-divider"></div>
-                        <a href="#" class="dropdown-item">
-                            <i class="fas fa-users mr-2"></i> 8 friend requests
-                            <span class="float-right text-muted text-sm">12 hours</span>
-                        </a>
-                        <div class="dropdown-divider"></div>
-                        <a href="#" class="dropdown-item">
-                            <i class="fas fa-file mr-2"></i> 3 new reports
-                            <span class="float-right text-muted text-sm">2 days</span>
-                        </a>
-                        <div class="dropdown-divider"></div>
-                        <a href="#" class="dropdown-item dropdown-footer">See All Notifications</a>
+                        <a href="#" class="dropdown-item dropdown-footer">Voir toutes les messages</a>
                     </div>
                 </li>
                 <li class="nav-item">
@@ -223,7 +208,7 @@ $lien = 'http://php/SAYNA/SAYNA-SQLPHP-SPACEODYSSEY/www/';
         <!-- Main Sidebar Container -->
         <aside class="main-sidebar sidebar-dark-primary elevation-4">
             <!-- Brand Logo -->
-            <a href="#" class="brand-link">
+            <a href="#" class="brand-link" style="text-decoration : none;">
                 <img src="img/sayna-logo.jpg" alt="SAYNA Logo" class="brand-image img-circle elevation-3" style="opacity: .8">
                 <span class="brand-text font-weight-semibold">Stellar Tech</span>
             </a>

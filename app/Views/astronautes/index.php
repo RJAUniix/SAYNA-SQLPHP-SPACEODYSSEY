@@ -31,6 +31,9 @@ include('../../../Uniix/Connexion.php');
                                     if ($row["etat_sante"]==="Bonne") {
                                         echo '<span class="badge badge-success position-absolute" style="top: 5; right: 10;">Disponible</span>';
                                     }
+                                    else {
+                                        echo '<span class="badge badge-danger position-absolute" style="top: 5; right: 10;">Indisponible</span>';
+                                    }
 
                                     // Pour avoir l'âge
                                     $dateActuelle = new DateTime();
@@ -88,6 +91,8 @@ include('../../../Uniix/Connexion.php');
         }
         ?>
     </div>
+    <!-- col -->
+</div>
 <!-- /.row -->
 
 <?php include("../footer.php"); ?>

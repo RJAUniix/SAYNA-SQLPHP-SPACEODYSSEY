@@ -8,7 +8,6 @@
     <style>
         
         .center-content {
-            margin-top: 15%;
             text-align: center;
             color: white;
             background-color: rgba(0, 0, 0, 0.7);        
@@ -39,13 +38,146 @@
 </head>
 
 <!-- Le header -->
-<?php include('../app/Views/header.php'); ?>
+<?php 
+
+include('../app/Views/header.php'); 
+include('../Uniix/Connexion.php');
+
+?>
 
 <!-- Main content -->
 <section class="content">
     <div class="container-fluid">
+        <div class="row ml-4 mt-2">
+            <div class="offset-2 col-lg-10">
+        <!-- Small boxes (Stat box) -->
+         <div class="row">
+          <div class="col-lg-3 col-6">
+            <!-- small box -->
+            <div class="small-box bg-info">
+              <div class="inner">
+                <!-- Pour afficher quelques statistiques -->
+                <?php
+                $query = "SELECT count(id) as nombre FROM planete";
+                $stmt = $pdo->query($query);
+
+
+                // Pour passer à la ligne après 2 cards
+                $cardCount = 0;
+
+                while ($row = $stmt->fetch(PDO::FETCH_ASSOC)) {
+                ?>
+                  
+                  <h3><?= $row['nombre'] ?></h3>
+
+                <?php 
+                  }
+                ?>
+
+                <p>Planètes découvertes</p>
+              </div>
+              <div class="icon">
+                <i class="nav-icon fas fa-globe"></i>
+              </div>
+              <a href="#" class="small-box-footer">Plus d'info <i class="fas fa-arrow-circle-right"></i></a>
+            </div>
+          </div>
+          <!-- ./col -->
+          <div class="col-lg-3 col-6">
+            <!-- small box -->
+            <div class="small-box bg-success">
+              <div class="inner">
+                <?php
+                $query = "SELECT count(id) as nombre FROM missions";
+                $stmt = $pdo->query($query);
+
+
+                // Pour passer à la ligne après 2 cards
+                $cardCount = 0;
+
+                while ($row = $stmt->fetch(PDO::FETCH_ASSOC)) {
+                ?>
+                  
+                  <h3><?= $row['nombre'] ?></h3>
+
+                <?php 
+                  }
+                ?>
+                <p>Missions</p>
+              </div>
+              <div class="icon">
+                <i class="ion ion-stats-bars"></i>
+              </div>
+              <a href="#" class="small-box-footer">Plus d'info <i class="fas fa-arrow-circle-right"></i></a>
+            </div>
+          </div>
+          <!-- ./col -->
+          <div class="col-lg-3 col-6">
+            <!-- small box -->
+            <div class="small-box bg-warning">
+              <div class="inner">
+              <?php
+                $query = "SELECT count(id) as nombre FROM astronautes";
+                $stmt = $pdo->query($query);
+
+
+                // Pour passer à la ligne après 2 cards
+                $cardCount = 0;
+
+                while ($row = $stmt->fetch(PDO::FETCH_ASSOC)) {
+                ?>
+                  
+                  <h3><?= $row['nombre'] ?></h3>
+
+                <?php 
+                  }
+                ?>
+                <p>Astronautes</p>
+              </div>
+              <div class="icon">
+                <i class="ion ion-person-add"></i>
+              </div>
+              <a href="#" class="small-box-footer">Plus d'info <i class="fas fa-arrow-circle-right"></i></a>
+            </div>
+          </div>
+          <!-- ./col -->
+          <div class="col-lg-3 col-6">
+            <!-- small box -->
+            <div class="small-box bg-danger">
+              <div class="inner">
+              <?php
+                $query = "SELECT count(id) as nombre FROM vaisseaux";
+                $stmt = $pdo->query($query);
+
+
+                // Pour passer à la ligne après 2 cards
+                $cardCount = 0;
+
+                while ($row = $stmt->fetch(PDO::FETCH_ASSOC)) {
+                ?>
+                  
+                  <h3><?= $row['nombre'] ?></h3>
+
+                <?php 
+                  }
+              ?>
+                <p>Vaisseaux</p>
+              </div>
+              <div class="icon">
+                <i class="ion ion-pie-graph"></i>
+              </div>
+              <a href="#" class="small-box-footer">Plus d'info <i class="fas fa-arrow-circle-right"></i></a>
+            </div>
+          </div>
+          <!-- ./col -->
+        </div>
+        
+        </div>
+    </div>
+        <!-- /.row -->
+
         <div class="row ml-4">
-            <div class="offset-2 col-lg-10" style='width: 100vw; height: 100vh;' id="main">
+            <div class="offset-2 col-lg-10" id="main">
                 <div class="center-content">
                     <h1 class="fade-in">Stellar Tech</h1>
                     <p id="p-center">Bienvenue sur la plateforme de gestion des missions intersterstélaires pour la découvertes de nouveaux horizons.</p>
