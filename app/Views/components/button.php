@@ -1,1 +1,1 @@
-<a href="<?= $url ?>" class="btn btn-<?= $type ?? 'info' ?> btn-sm"><?= $label ?></a>
+<button class="btn btn-<?= $type ?? 'info' ?> btn-sm" type="submit"><?= $label ?></button>

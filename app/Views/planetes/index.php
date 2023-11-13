@@ -23,6 +23,7 @@ include('../../../Uniix/Connexion.php');
                         <td></td>
                     </tr>
                 </thead>
+                <tbody>
                 <?php
 
                     $query = "SELECT *FROM planete";
@@ -37,21 +38,24 @@ include('../../../Uniix/Connexion.php');
 
                         echo '<td>' . $row["distance"] . ' Km</td>';
 
-                        echo '<td width="20px">';
+                        echo '<td width="20px">
+                        <form action="../app/Views/planetes/form.php" method="POST">
+                        <input type="hidden" name="id" value="'.$row["id"].'">';
                         // ajout des variable indispendables
-                        $url = '.?controller=planete&action=edit&planete=' . $row["id"];
                         // $label = '<i class="fas fa-pen"></i>';
                         $label = 'Edit';
                         $type = 'info';
                         include('../components/button.php');
+                        echo '</form>';
 
                         // // button suppression
-
-                        $url = '.?controller=planete&action=delete&planete=' . $row["id"];
+                        echo '<form action="confirmDelete.php" method="POST">';
+                        $url = '.?controller=Planete&action=delete&planete=' . $row["id"];
                         // $label = '<i class="fas fa-pen"></i>';
                         $label = 'Delete';
                         $type = 'danger';
                         include('../components/button.php');
+                        echo '</form>';
 
                         echo '</td>';
 
