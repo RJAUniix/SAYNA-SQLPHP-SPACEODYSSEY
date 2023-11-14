@@ -23,12 +23,16 @@ if( preg_match("/^[a-zA-Z]+$/",$_POST['nom']) && preg_match("/^.+$/",$_POST['des
     $statut = "";
     $duree = $_POST['duree'];
     $description = $_POST['description'];
-    echo $id_vaisseau;
     // requete d'insertion
     $query = "INSERT INTO missions (nom,debut,statut,duree,id_planete,id_vaisseau,description) VALUES ('$nom','$debut','$statut','$duree','$id_planete','$id_vaisseau','$description')";
     $stmt = $pdo->prepare($query);
 
     $stmt->execute();
 
+    echo $query;
+
     header('location:index.php');
+}
+else {
+    echo "ERROR";
 }

@@ -5,10 +5,10 @@ include('../../../Uniix/Connexion.php');
 
 <!-- Main content -->
 <div class="content">
-    <div class="container-fluid">
+    <div class="container-fluid" style="height : 80vh;">
         <div class="offset-2 col-lg-2 row mt-2">
             <!-- Pour ajouter une nouvelle mission -->
-                <button class="btn btn-outline-dark rounded-pill ml-5" data-bs-toggle="modal" data-bs-target="#insertion">Nouvelle mission</button>
+                <button class="btn btn-outline-light rounded-pill ml-5" data-bs-toggle="modal" data-bs-target="#insertion">Nouvelle mission</button>
         </div>
 
         <div class="offset-2 row mt-2">
@@ -66,7 +66,7 @@ include('../../../Uniix/Connexion.php');
                                             <h5 class="card-title mb-2">' . $row["nom"] . '</h5>
                                             <p class="card-text">' . $row["description"] . '</p>
                                             <form method="POST" action="form.php">
-                                                <button type="submit" class="btn btn-primary" name="id">Voir plus</button>
+                                                <button type="submit" class="btn btn-primary" name="id" value="' . $row["id"] . '">Voir plus</button>
                                             </form>
                                         </div>';
                                         $today =  date("y-d-m");
@@ -104,7 +104,7 @@ include('../../../Uniix/Connexion.php');
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div> 
 
-                <form method="POST" action="../app/Views/missions/ajouter.php" class="row g-3 m-3">
+                <form method="POST" action="../app/Views/missions/add.php" class="row g-3 m-3">
                     <div class="col-md-6 mt-1">
                         <label for="nom" class="form-label">Nom de la mission</label>
                         <input type="text" class="form-control" name="nom">
@@ -120,9 +120,10 @@ include('../../../Uniix/Connexion.php');
                     <div class="col-6 mt-1">
                         <label for="Statut" class="form-label">Statut</label><br>
                         <select name="statut" class="form-select form-control">
-                            <option selected value="">Choisir...</option>
-                            <option value="Terminée">Terminée</option>
-                            <option value="Annulée">Annulée</option>
+                            <option selected value="">En préparation</option>
+                            <option value="En cours">En cours</option>
+                            <option value="Terminé">Terminé</option>
+                            <option value="Abandonné">Abandonné</option>
                         </select>
                     </div>
                     <div class="col-6 mt-1">

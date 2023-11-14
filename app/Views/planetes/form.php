@@ -3,8 +3,11 @@
 include('../header.php');
 include('../../../Uniix/Connexion.php');
 
-if (isset($_POST['id'])) {
-    $id = $_POST['id'];
+if (isset($_GET['id'])) {
+    $id = $_GET['id'];
+}
+else {
+    $id = $id;
 }
 ?>
 
@@ -29,7 +32,7 @@ if (isset($_POST['id'])) {
         while ($row = $stmt->fetch(PDO::FETCH_ASSOC)) {
         ?>
 
-        <form method="POST" action="../app/Views/planetes/modifier.php" class="row g-3 m-3">
+        <form method="GET" action="../app/Views/planetes/update.php" class="row g-3 m-3">
             <div class="col-md-12 mt-1">
                 <label for="nom" class="form-label">Nom de la planète</label>
                 <input type="hidden" name="id" value="<?= $row['id'] ?>">
@@ -45,11 +48,11 @@ if (isset($_POST['id'])) {
             </div>
             <div class="col-md-12 mt-1">
                 <label for="duree" class="form-label">Documentation</label>
-                <textarea name="documentation" class="form-control"></textarea value="<?= $row['documentation'] ?>">
+                <textarea name="documentation" class="form-control"><?php echo $row['documentation'] ?></textarea>
             </div>
                                 
             <div class="col-md-12 mt-3">
-                    <button type="button" class="btn btn-outline-danger" data-bs-dismiss="modal">Retour</button>
+                    <a href="../app/Views/planetes/index.php"><button type="button" class="btn btn-outline-danger" data-bs-dismiss="modal">Annuler</button></a>
                     <button type="submit" name="enregistrer" class="btn btn-outline-success">Mettre à jour</button>
                     
             </div>

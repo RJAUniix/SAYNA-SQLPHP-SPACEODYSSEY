@@ -79,7 +79,7 @@ include('../Uniix/Connexion.php');
               <div class="icon">
                 <i class="nav-icon fas fa-globe"></i>
               </div>
-              <a href="#" class="small-box-footer">Plus d'info <i class="fas fa-arrow-circle-right"></i></a>
+              <a href="../app/Views/planetes/index.php" class="small-box-footer">Plus d'info <i class="fas fa-arrow-circle-right"></i></a>
             </div>
           </div>
           <!-- ./col -->
@@ -108,7 +108,7 @@ include('../Uniix/Connexion.php');
               <div class="icon">
                 <i class="ion ion-stats-bars"></i>
               </div>
-              <a href="#" class="small-box-footer">Plus d'info <i class="fas fa-arrow-circle-right"></i></a>
+              <a href="../app/Views/missions/index.php" class="small-box-footer">Plus d'info <i class="fas fa-arrow-circle-right"></i></a>
             </div>
           </div>
           <!-- ./col -->
@@ -137,7 +137,7 @@ include('../Uniix/Connexion.php');
               <div class="icon">
                 <i class="ion ion-person-add"></i>
               </div>
-              <a href="#" class="small-box-footer">Plus d'info <i class="fas fa-arrow-circle-right"></i></a>
+              <a href="../app/Views/astronautes/index.php" class="small-box-footer">Plus d'info <i class="fas fa-arrow-circle-right"></i></a>
             </div>
           </div>
           <!-- ./col -->
@@ -213,13 +213,10 @@ include('../Uniix/Connexion.php');
                     if (data.media_type === 'image') {
                         const imageUrl = data.url;
 
-                        // Sélectionnez la section par son ID
-                        const main = document.querySelector('#main');
-
                         // Définissez l'URL de l'image comme arrière-plan pour votre site
-                        main.style.backgroundImage = `url(${imageUrl})`;
-                        main.style.backgroundRepeat = 'no-repeat';
-                        main.style.backgroundSize = 'cover';
+                        document.body.style.backgroundImage = `url(${imageUrl})`;
+                        document.body.style.backgroundRepeat = 'no-repeat';
+                        document.body.style.backgroundSize = 'cover';
 
                         // Stockez la date actuelle en cookie pour indiquer que l'image a été changée aujourd'hui
                         document.cookie = `backgroundChanged=${currentDate.toUTCString()}; expires=${currentDate.toUTCString()}`;

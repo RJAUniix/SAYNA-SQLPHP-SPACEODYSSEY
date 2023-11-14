@@ -4,8 +4,8 @@ include('header.php');
 ?>
 
 <!-- Main content -->
-<div class="row">
-    <div class="offset-3 col-lg-8">
+<div class="row mt-5" style="height: 190vh">
+    <div class="offset-3 col-lg-8 text-light" >
     <h2 class="mt-2 mb-5">Bienvenue sur notre Plateforme de Gestion de Missions Galactiques</h2>
     <h3>À propos de notre site</h3>
     Bienvenue sur notre plateforme dédiée à la gestion de missions spatiales à la découverte de nouvelles planètes. Notre mission est de faciliter l'exploration et la recherche scientifique dans l'univers infini qui nous entoure. Que vous soyez un astronaute, un chercheur ou un passionné de l'espace, notre site vous offre les outils nécessaires pour planifier, suivre et découvrir de nouveaux horizons.
