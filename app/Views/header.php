@@ -143,7 +143,6 @@ $fichier = substr($lien2, strrpos($_SERVER['SCRIPT_NAME'],"/")+1);
                 <li class="nav-item dropdown">
                     <a class="nav-link" data-toggle="dropdown" href="#">
                     <i class="far fa-comment"></i>
-                    <span class="badge badge-danger navbar-badge mt-3">3</span>
                     </a>
                     <div class="dropdown-menu dropdown-menu-xm dropdown-menu-right">
                         <a href="#" class="dropdown-item">
@@ -298,40 +297,40 @@ $fichier = substr($lien2, strrpos($_SERVER['SCRIPT_NAME'],"/")+1);
     // URL de l'API APOD
     const apiKey = 'AW6lMK0EKHOOKSAhnlzNs3zyMA5dF8k0PkBoUwgS'; // Remplacez YOUR_API_KEY par votre propre clé API de la NASA
     const apiUrl = `https://api.nasa.gov/planetary/apod?api_key=${apiKey}`; 
-    
+
     function changerBackground() {
-        // Vérifiez si la date stockée en cookie est égale à la date actuelle
-        const lastChangedDate = new Date(document.cookie.replace(/(?:(?:^|.*;\s*)backgroundChanged\s*\=\s*([^;]*).*$)|^.*$/, "$1"));
+    const lastChangedDate = localStorage.getItem('backgroundChanged');
+    const currentDate = new Date().toDateString();
 
-        // Obtenez la date actuelle
-        const currentDate = new Date();
+    if (!lastChangedDate || lastChangedDate !== currentDate) {
+        fetch(apiUrl)
+            .then(response => response.json())
+            .then(data => {
+                if (data.media_type === 'image') {
+                    const imageUrl = data.url;
 
-        // Vérifiez si l'image a déjà été changée aujourd'hui
-        if (currentDate.getDate() !== lastChangedDate.getDate()) {
-            fetch(apiUrl)
-                .then(response => response.json())
-                .then(data => {
-                    // Vérifiez si la réponse contient une image
-                    if (data.media_type === 'image') {
-                        const imageUrl = data.url;
+                    // Pour modifier le style de la background
+                    document.body.style.backgroundImage = `url(${imageUrl})`;
+                    document.body.style.backgroundRepeat = 'no-repeat';
+                    document.body.style.backgroundSize = 'cover';
 
-                        // Définissez l'URL de l'image comme arrière-plan pour votre site
-                        document.body.style.backgroundImage = `url(${imageUrl})`;
-                        document.body.style.backgroundRepeat = 'no-repeat';
-                        document.body.style.backgroundSize = 'cover';
-
-                        // Stockez la date actuelle en cookie pour indiquer que l'image a été changée aujourd'hui
-                        document.cookie = `backgroundChanged=${currentDate.toUTCString()}; expires=${currentDate.toUTCString()}`;
-                    } else {
-                        console.error('Aucune image n\'a été trouvée dans la réponse de l\'API APOD.');
-                    }
-                })
-                .catch(error => {
-                    console.error('Une erreur s\'est produite lors de la récupération de l\'image APOD :', error);
-                });
-        }
+                    // Stockage de l'URL de l'image et la date actuelle en localStorage
+                    localStorage.setItem('backgroundImage', imageUrl);
+                    localStorage.setItem('backgroundChanged', currentDate);
+                } else {
+                    console.error('Aucune image trouvée dans la réponse de l\'API APOD.');
+                }
+            })
+            .catch(error => {
+                console.error('Erreur lors de la récupération de l\'image APOD:', error);
+            });
+    } else {
+        const cachedImageUrl = localStorage.getItem('backgroundImage');
+        document.body.style.backgroundImage = `url(${cachedImageUrl})`;
+        document.body.style.backgroundRepeat = 'no-repeat';
+        document.body.style.backgroundSize = 'cover';
+    }
     }
 
-    // Appelez la fonction lorsque la page se charge
-    window.addEventListener('load', changerBackground);
+window.addEventListener('load', changerBackground);
 </script>

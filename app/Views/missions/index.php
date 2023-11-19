@@ -5,7 +5,7 @@ include('../../../Uniix/Connexion.php');
 
 <!-- Main content -->
 <div class="content">
-    <div class="container-fluid" style="height : 80vh;">
+    <div class="container-fluid" style="min-height : 80vh;">
         <div class="offset-2 col-lg-2 row mt-2">
             <!-- Pour ajouter une nouvelle mission -->
                 <button class="btn btn-outline-light rounded-pill ml-5" data-bs-toggle="modal" data-bs-target="#insertion">Nouvelle mission</button>
@@ -29,14 +29,14 @@ include('../../../Uniix/Connexion.php');
                     // Vérifier si le nombre maximum de cartes est atteint
                     if ($cardCount < 2) {
                         echo '
-                            <div class="col-lg-6 d-flex mr-2">
+                            <div class="col-lg-6 mr-2">
                                 <div class="card">
                                     <div class="card-body">
                                         <h5 class="card-title mb-2">' . $row["nom"] . '</h5>
                                         <p class="card-text">' . $row["description"] . '</p>
-                                        <form method="POST" action="../app/Views/missions/form.php">
-                                            <button type="submit" class="btn btn-primary" name="id" value="' . $row["id"] . '">Voir plus</button>
-                                        </form>
+                                        <a href="../app/Views/missions/form.php?id=' . $row["id"] . '"><button type="submit" class="btn btn-primary" name="id" value="' . $row["id"] . '"><i class="nav-icon fas fa-eye"></i></button></a>
+                                        <a href="../app/Views/missions/confirmDelete.php?id=' . $row["id"] . '"><button type="submit" class="btn btn-danger" name="id" value="' . $row["id"] . '"><i class="nav-icon fas fa-trash"></i></button></a>
+
                                     </div>';
                                         $today =  date("y-d-m");
                                         // Ajout du badge en haut à droite si la personne est disponible
@@ -54,20 +54,20 @@ include('../../../Uniix/Connexion.php');
                             </div>";
                         $cardCount++;
                     }else {
-                        // Fermer la div du row actuel et ouvrir une nouvelle div row
+                        // Fermer la div du row actuel et ouvrir une nouvelle div row pour arranger le placement des cards
                         echo '</div></div>
                         
                         
                         <div class="offset-2 row mt-2">
                             <div class="col-lg-11 d-flex ml-5">   
-                                <div class="col-lg-6 d-flex mr-2">
+                                <div class="col-lg-6 mr-2">
                                     <div class="card">
                                         <div class="card-body">
                                             <h5 class="card-title mb-2">' . $row["nom"] . '</h5>
                                             <p class="card-text">' . $row["description"] . '</p>
-                                            <form method="POST" action="form.php">
-                                                <button type="submit" class="btn btn-primary" name="id" value="' . $row["id"] . '">Voir plus</button>
-                                            </form>
+                                            <a href="../app/Views/missions/form.php?id=' . $row["id"] . '"><button type="submit" class="btn btn-primary" name="id" value="' . $row["id"] . '"><i class="nav-icon fas fa-eye"></i></button></a>
+                                            <a href="../app/Views/missions/confirmDelete.php?id=' . $row["id"] . '"><button type="submit" class="btn btn-danger" name="id" value="' . $row["id"] . '"><i class="nav-icon fas fa-trash"></i></button></a>
+
                                         </div>';
                                         $today =  date("y-d-m");
                                         // Ajout du badge en haut à droite si la personne est disponible

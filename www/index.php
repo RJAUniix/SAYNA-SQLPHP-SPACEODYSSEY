@@ -181,7 +181,7 @@ include('../Uniix/Connexion.php');
                 <div class="center-content">
                     <h1 class="fade-in">Stellar Tech</h1>
                     <p id="p-center">Bienvenue sur la plateforme de gestion des missions intersterstélaires pour la découvertes de nouveaux horizons.</p>
-                    <button class="btn btn-outline-primary mt-5 mb-5">Nouvelle mission</button>
+                    <a href="../app/Views/missions/index.php"><button class="btn btn-outline-primary mt-5 mb-5">Nouvelle mission</button></a>
                 </div>  
             </div>
         </div>

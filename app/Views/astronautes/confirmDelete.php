@@ -6,6 +6,8 @@ include('../app/Views/header.php');
 <a href=".?controller=Pays&action=index">Retour</a></br>
 <h2>Confirmez la suppression de "<?= $pays->name; ?>"</h2>
 
+
+<!-- Pour envoyer l'id au fichier de suppression -->
 <div class="row">
     <form action=".?controller=Pays&action=deleteConfirm" class="" method="POST">
         <input type="hidden" name="pays" value="<?= $pays->id; ?>" />
